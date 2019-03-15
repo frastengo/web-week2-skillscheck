@@ -2,81 +2,118 @@
 
 // Create a variable called 'myName' that's value is your name
 
-// Code here
+var myName = "Francisca";
 
 //////////////////PROBLEM 2////////////////////
 
 // Create a variable called 'faveNum' that's value is your favorite number
 
-//Code here
+var faveNum = 2;
 
 //////////////////PROBLEM 3////////////////////
 
 // Create a variable called 'lovesCode' and set it to true
 
-//Code here
+var lovesCode = true;
 
 //////////////////PROBLEM 4////////////////////
 
 // Create a function called 'sum' that takes in two parameters, num1 and num2, and returns the sum (multiplication) of those two parameters.
 
-//Code here
+function sum(num1, num2){
+	return num1 + num2;
+}
 
 //////////////////PROBLEM 5////////////////////
 
 // Create a function called 'lovesCodeChecker' that takes in a single parameter called x. Check to see if x is equal to true. If it is, return true as a boolean. If x does not equal true, return false as a boolean
 
-//Code here
+function lovesCodeChecker(x){
+	return x === true ? true : false;
+	// if (x === true){
+	// 	return true;
+	// }else{
+	// 	return false;
+	// }
+}
 
 //////////////////PROBLEM 6////////////////////
 
 // Create a function called 'oddChecker' that takes in one parameter, num. Check to see if the number is even or odd. If it is odd, return 'the number is odd' or return 'the number is even' if it is even.
 
-//Code here
+function oddChecker(num){
+	return num % 2 === 0 ? "the number is even" : "the number is odd";
+}
 
 //////////////////PROBLEM 7////////////////////
 
 // Create a function called 'iLove' that takes in two parameters, name which will be a string  and love which will be a string of something you love. Have the function take the two parameters and retrun a string that says "NAMEPARAM loves LOVEPARAM" with the appropriate parameters in the string. e.g. "Bryan loves skateboarding"
 
-//Code Here
+function iLove(name, love){
+	return name + " loves " + love;
+}
 
 //////////////////PROBLEM 8////////////////////
 
 // Create a copy of the faveColors array called 'colorCopy' using slice
 const faveColors = ['red', 'green', 'black']
 
-//Code Here
+var colorCopy = faveColors.slice(0);
+console.log('hereiam', colorCopy);
 
 //////////////////PROBLEM 9////////////////////
 
 // Add a fourth color to the end of the 'colorCopy' array using push
 
-//Code Here
+colorCopy.push('yellow');
+console.log(colorCopy);
 
 //////////////////PROBLEM 10////////////////////
 
 // Create a new array called 'middleNums' from the numbers array that will capture only the middle numbers (2, 3, 4).
 const numbers = [1, 2, 3, 4, 5]
 
-//Code Here
+var middleNums = numbers.splice(1,3);
+console.log(middleNums);
 
 //////////////////PROBLEM 11////////////////////
 
 // Create an object called 'me' that has these keys with the correct values: firstName, state, age, greeter. firstName will be your name as a string. state will be your current state or providence as a string. age will be your age as a number. greeter will be a method that returns the string 'Hello! My name is NAMEVALUE and I live in STATEVALUE' with the correct values
 
-//Code Here
+var me = {
+	firstName: "Francisca",
+	state: "Arizona",
+	age: 27,
+	greeter: function(firstName, state){
+		return "Hello! My name is ${firstName} and I live in ${state}";
+	}
+}
+
 
 //////////////////PROBLEM 12////////////////////
 
 // Create a function called 'bigOrSmall' that takes in one parameter, arr. Create a new array inside of bigOrSmall called 'answers'. Loop over the passed in arr param. If the number is GREATER than 100, push 'big' as a string to the answers array. If the number is LESS than or EQUAL to 100, push 'small' as a string to the answers array. Return the answers array inside of the function
 
-// Code here
+function bigOrSmall(arr){
+	var answers = [];
+	for (var i = 0; i < arr.length; i++){
+		arr[i] > 100 ? answers.push('big') : answers.push('small');
+	}
+	return answers
+}
+console.log(bigOrSmall([100, 2, 120, 40, 150]));
 
 //////////////////PROBLEM 13////////////////////
 
 // Create a function called 'arrayReverser' that takes in one parameter, arr. Inside of arrayReverser, create an empty array called 'reversed'. Using a for loop, loop over the passed in array in reverse and add each item to the new reversed array. Finally, return the new reversed array
 
-//Code Here
+function arrayReverser(arr){
+	var reversed = [];
+	for (var i = arr.length - 1 ; i >= 0; i--){
+		reversed.push(arr[i]);
+	}
+	return reversed;
+}
 
 //////////////////PROBLEM 14 - 18 Setup////////////////////
 
@@ -88,32 +125,38 @@ const myNumbers = [3, 55, 788, 2, 1]
 
 // First, with an arrow function let's use .map to create a new array that doubles each number. Call the new array 'doubled'
 
-// Code Here
+// var array = [2,3,4,5];
+
+var doubled = myNumbers.map(element=> element * 2);
 
 //////////////////PROBLEM 15////////////////////
 
 // Now lets use .filter and an arrow function to only get the nubmer(s) greater than 100. Use an arrow function and call the new array 'filtered'
 
-// Code Here
+var filtered = myNumbers.filter(element => element>100);
 
 //////////////////PROBLEM 16////////////////////
 
 // Next up, reduce. Use .reduce and an arrow function to get the total of the array. call the new array 'total' and use an arrow function
 
-// Code Here
+var total = myNumbers.reduce((acc, cur) => acc + cur);
 
 //////////////////PROBLEM 17////////////////////
 
 // Last, lets use .forEach to find the index of each item in the array. First, create an empty array called myNumbersIndex. Next, using forEach, push each items index from the myNumbers array to the myNumbersIndex array
 
-// Code Here
+var myNumbersIndex = [];
+
+myNumbers.forEach((element, index) => myNumbersIndex.push(index));
+console.log('hereeeeee', myNumbersIndex);
 
 //////////////////PROBLEM 18////////////////////
 
 // Did you know that George Foreman has five sons named George? Let's go ahead and change everyone's name in the notGeorge array to George using .map and an arrow function. Call the new array 'forTheLoveOfGeorge'
 const notGeorge = ['Louis', 'Ted', 'Bill', 'Sharon', 'Mark', 'Angela']
 
-// Code Here
+var forTheLoveOfGeorge = notGeorge.map(element => element = "George");
+console.log(forTheLoveOfGeorge);
 
 //////////////////PROBLEM 19////////////////////
 
@@ -127,10 +170,14 @@ const people = [
 	{ name: 'George', friend: true, awesomeLevel: 7 }
 ]
 
-// Code Here
+var enemies = people.filter((element, index) => people[index].friend === false);
 
 //////////////////PROBLEM 20////////////////////
 
 // Using the people array above, let's get a total of the awesomeLevel from all the people. Call the new array 'totallyAwesome'. Use .reduce and an arrow function
 
-// Code Here
+let totallyAwesome = people.reduce((acc, cur) => acc + cur.awesomeLevel, 0);
+
+
+console.log("herrerer", totallyAwesome);
+
